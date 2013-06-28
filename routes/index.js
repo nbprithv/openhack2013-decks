@@ -18,3 +18,7 @@ exports.websockets = function(req, res){
 exports.websocket_res = function(req, res){
   res.json({ msg: 'Web socket Response' });
 };
+
+exports.notifications = function(req, res){
+  res.render('notifications', { title: 'Express' });
+};

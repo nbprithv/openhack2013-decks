@@ -21,13 +21,27 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
     
     <style>
+      .y-logo, .y-logo-subtext{
+        position:fixed;
+        right:10px;
+        font-family: Helvetica neue,Helvetica,Arial,sans-serif;
+        font-weight: lighter;
+        text-align:right;
+        text-transform:uppercase;
+        letter-spacing:0.04em;
+      }
       .y-logo{
         background:url('http://l2.yimg.com/dh/ap/default/130613/pc_icons_btns_sprite_0613_3pm.png') no-repeat scroll -118px -2px transparent;
-        position:fixed;
         top:10px;
-        right:10px;
         height:19px;
         width:95px;
+      }
+      .y-logo-subtext{
+        top:29px;
+        color:#FFFFFF;
+      }
+      .y-logo-subtext span{
+        font-weight: bold;
       }
     </style>
 
@@ -66,21 +80,13 @@
             <li>WebRTC</li>
             <li>Webkit Desktop Notifications</li>
           </ol>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
 						<h2>Web Workers</h2>
-              <p>Single threading in JS bringing you down?</p>
-              <p>Then this is probably the answer to your problem.</p>
-						<!--<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>-->
+              <p>Single threading bringing you down?</p>
 					</section>
 					<section>
 						<h2>Some Code</h2>
@@ -102,7 +108,7 @@ self.addEventListener('message', function(e) {
             </pre></code>
 					</section>
           <section>
-            <h2>When do you need this?</h2>
+            <h2>When do you use this?</h2>
             <ul>
               <li>Worker scripts do not block UI scripts</li>
               <li>Long running worker scripts do not interrupt UI thread.</li>
@@ -117,27 +123,17 @@ self.addEventListener('message', function(e) {
           <section>
             <h2>Web Sockets</h2>
             <p>Long polling just not cutting it?</p>		
-            <p>AJAX/Script tags just not enough dynamic enough?</p>
           </section>
           <section>
             <h2>Some Code</h2>
           </section>
           <section>
-            <h2>When do you need this?</h2>
+            <h2>When do you use this?</h2>
             <ul>
               <li>Safari,Chrome,Firefox,Browser-that-shall-not-be-named</li>
             </ul>
           </section>
         </section>
-
-				<section>
-          <section>
-            <h2>asm.js</h2>
-          </section>
-          <section>
-            <h2>When do you need this?</h2>
-          </section>
-				</section>
 
 				<section>
           <section>
@@ -162,33 +158,67 @@ navigator.webkitGetUserMedia({audio:true}, gotStream);
             </code></pre>
           </section>
           <section>
-            <h2>When do you need this?</h2>
-            <ol>
-              <li class="fragment">Real time communication w/o plugins.</li>
-              <li class="fragment">Works with Chrome/Firefox</li>
-            </ol>
+            <h2>When do you use this?</h2>
+            <ul>
+              <li>Chrome</li>
+              <li>Firefox</li>
+            </ul>
           </section>
 				</section>
 
 				<section>
           <section>
             <h2>Webkit Desktop Notification</h2>
+            <p>Less annoying pop-ups.</p>
           </section>
           <section>
             <h2>Some Code</h2>
+            <pre><code>
+function notify() {
+  var havePermission = window.webkitNotifications.checkPermission();
+  if (havePermission == 0) {
+    // 0 is PERMISSION_ALLOWED
+    var notification = window.webkitNotifications.createNotification(
+      'http://localhost:3000/notifications',
+      'Chrome notification!',
+      'Ola!'
+    );
+
+    notification.show();
+  } else {
+      window.webkitNotifications.requestPermission();
+  }
+}
+            </pre></code>
+          </section>
+          <section>
+            <h2>When do you use this?</h2>
+            <ol>
+              <li>Safari</li>
+              <li>Chrome</li>
+            </ol>
           </section>
 				</section>
 
 				<section>
-					<h1>THE END</h1>
-					<h3>BY NIRANJAN B PRITHVIRAJ / niranjanprithviraj.com</h3>
-					<h3>http://github.com/nbprithv/</h3>
+          <section>
+            <h2>asm.js</h2>
+          </section>
+          <section>
+            <h2>When do you use this?</h2>
+          </section>
 				</section>
-
+				<section>
+					<h1>THE END</h1>
+					<p>NIRANJAN B PRITHVIRAJ / niranjanprithviraj.com</p>
+					<p>nbprithv.github.com/openhack2013-decks</p>
+          <small>Brought to you by <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small>
+				</section>
 			</div>
 
 		</div>
     <div class="y-logo"></div>
+    <div class="y-logo-subtext"><span>Hack</span> India 2013<br>Hyderabad</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
