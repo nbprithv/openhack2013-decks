@@ -30,18 +30,38 @@
         text-transform:uppercase;
         letter-spacing:0.04em;
       }
-      .y-logo{
-        background:url('http://l2.yimg.com/dh/ap/default/130613/pc_icons_btns_sprite_0613_3pm.png') no-repeat scroll -118px -2px transparent;
-        top:10px;
-        height:19px;
-        width:95px;
-      }
-      .y-logo-subtext{
-        top:29px;
-        color:#FFFFFF;
-      }
       .y-logo-subtext span{
         font-weight: bold;
+      }
+      @media only screen and (min-width: 768px) {
+        .y-logo{
+          background:url('http://l2.yimg.com/dh/ap/default/130613/pc_icons_btns_sprite_0613_3pm.png') no-repeat scroll -118px -2px transparent;
+          top:10px;
+          height:19px;
+          width:95px;
+        }
+        .y-logo, .y-logo-subtext{
+          font-size:1em;
+        }
+        .y-logo-subtext{
+          top:29px;
+          color:#FFFFFF;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        .y-logo{
+          background:url('http://l2.yimg.com/dh/ap/default/130613/pc_icons_btns_sprite_0613_3pm.png') no-repeat scroll -486px -2px transparent;
+          top:10px;
+          height:19px;
+          width:75px;
+        }
+        .y-logo, .y-logo-subtext{
+          font-size:0.6em;
+        }
+        .y-logo-subtext{
+          top:29px;
+          color:#FFFFFF;
+        }
       }
     </style>
 
