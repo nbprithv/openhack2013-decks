@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+  var worker = new Worker('/js/worker.js');
+  worker.addEventListener('message', function(e) {
+    console.log(e.data);
+  }, false);
+  worker.postMessage({'cmd':'start'});
+  worker.postMessage({'cmd':'stop'});
+  worker.postMessage({'cmd':'get'});
+</script>
+</body>
+</html>
