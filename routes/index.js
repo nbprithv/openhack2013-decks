@@ -15,6 +15,10 @@ exports.websockets = function(req, res){
   res.render('websockets', { title: 'Express' });
 };
 
+exports.webrtc = function(req, res){
+  res.render('webrtc', { title: 'Express' });
+};
+
 exports.websocket_res = function(req, res){
   res.json({ msg: 'Web socket Response' });
 };

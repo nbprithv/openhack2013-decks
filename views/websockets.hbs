@@ -5,7 +5,6 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io.connect('ws://localhost:3000/websocket_res');
-console.log(socket);
   socket.on('news', function (data) {
     console.log(data);
     socket.emit('my other event', { my: 'data' });

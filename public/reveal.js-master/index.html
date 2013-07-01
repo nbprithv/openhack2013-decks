@@ -95,9 +95,9 @@
 					<h2>What's in store today?</h2>
           <ol>
             <li>Web Workers</li>
-            <li>Web Sockets</li>
             <li>WebRTC</li>
             <li>Webkit Desktop Notifications</li>
+            <li>Web Sockets</li>
             <li>asm.js</li>
           </ol>
 				</section>
@@ -138,22 +138,6 @@ self.addEventListener('message', function(e) {
           </section>
 				</section>
         
-        <section>
-          <section>
-            <h2>Web Sockets</h2>
-            <p>Long polling just not cutting it?</p>		
-          </section>
-          <section>
-            <h2>Some Code</h2>
-          </section>
-          <section>
-            <h2>When do you use this?</h2>
-            <ul>
-              <li>Safari,Chrome,Firefox,Browser-that-shall-not-be-named</li>
-            </ul>
-          </section>
-        </section>
-
 				<section>
           <section>
             <h2>WebRTC</h2>
@@ -161,19 +145,32 @@ self.addEventListener('message', function(e) {
           </section>
           <section>
             <h2>Some Code</h2>
+              <pre><code>
+<video style="width:600px;height:400px;"></video>
+              </code></pre>
             <pre><code>
-function gotStream(stream) {
-  var audioContext = 'AudioContext' in window ? new AudioContext() :
-    (('webkitAudioContext' in window) ? new webkitAudioContext() : null);
-  if (audioContext) {
-    var mediaStreamSource = audioContext.createMediaStreamSource(stream);
-    mediaStreamSource.connect(audioContext.destination);
+navigator.getUserMedia = navigator.getUserMedia || 
+                        navigator.webkitGetUserMedia || 
+                        navigator.mozGetUserMedia;
+
+var constraints = {audio: true, video: true};
+var video = document.querySelector("video");
+
+function successCallback(stream) {
+  window.stream = stream; // stream available to console
+  if (window.URL) {
+    video.src = window.URL.createObjectURL(stream);
   } else {
-    // ...
+    video.src = stream;
   }
+  video.play();
 }
 
-navigator.webkitGetUserMedia({audio:true}, gotStream);
+function errorCallback(error){
+  console.log("navigator.getUserMedia error: ", error);
+}
+
+navigator.getUserMedia(constraints, successCallback, errorCallback);
             </code></pre>
           </section>
           <section>
@@ -181,6 +178,7 @@ navigator.webkitGetUserMedia({audio:true}, gotStream);
             <ul>
               <li>Chrome</li>
               <li>Firefox</li>
+              <li>tokbox.com/opentok/webrtc/demo/index.html</li>
             </ul>
           </section>
 				</section>
@@ -188,7 +186,7 @@ navigator.webkitGetUserMedia({audio:true}, gotStream);
 				<section>
           <section>
             <h2>Webkit Desktop Notification</h2>
-            <p>Less annoying pop-ups.</p>
+            <p>Pop-ups are cool again.</p>
           </section>
           <section>
             <h2>Some Code</h2>
@@ -212,12 +210,43 @@ function notify() {
           </section>
           <section>
             <h2>When do you use this?</h2>
-            <ol>
-              <li>Safari</li>
+            <ul>
               <li>Chrome</li>
-            </ol>
+              <li>Safari</li>
+            </ul>
           </section>
 				</section>
+
+        <section>
+          <section>
+            <h2>Web Sockets</h2>
+            <p>Quit long polling.</p>		
+          </section>
+          <section>
+            <h2>Some Code</h2>
+            <pre><code>
+<script src="/socket.io/socket.io.js"></script>
+            </code></pre>
+            <pre><code>
+<script>
+  var socket = io.connect('ws://localhost:3000/websocket_res');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+            </code></pre>
+          </section>
+          <section>
+            <h2>When do you use this?</h2>
+            <ul>
+              <li>Safari</li>
+              <li>Chrome</li>
+              <li>Firefox</li>
+              <li>Browser-that-shall-not-be-named</li>
+            </ul>
+          </section>
+        </section>
 
 				<section>
           <section>
