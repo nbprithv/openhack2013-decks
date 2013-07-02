@@ -97,8 +97,7 @@
             <li>Web Workers</li>
             <li>WebRTC</li>
             <li>Webkit Desktop Notifications</li>
-            <li>Web Sockets</li>
-            <li>asm.js</li>
+            <li>CREATEJS</li>
           </ol>
 				</section>
 
@@ -217,45 +216,38 @@ function notify() {
           </section>
 				</section>
 
-        <section>
+				<section>
           <section>
-            <h2>Web Sockets</h2>
-            <p>Quit long polling.</p>		
+            <h2>CREATEJS</h2>
+            <p>Animation, Sound, Assets management</p> 
           </section>
           <section>
             <h2>Some Code</h2>
             <pre><code>
-<script src="/socket.io/socket.io.js"></script>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script src="http://code.createjs.com/createjs-2013.05.14.min.js"></script>
             </code></pre>
             <pre><code>
-<script>
-  var socket = io.connect('ws://localhost:3000/websocket_res');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-  });
-</script>
+var stage = new createjs.Stage("myCanvas");
+var ball = new createjs.Shape();
+ball.addEventListener("click", handleClick);
+ball.graphics.beginFill("#000").drawCircle(0, 0, 50);
+ball.x = 50;
+ball.y = 200;
+stage.addChild(ball);
+stage.update();
             </code></pre>
           </section>
           <section>
             <h2>When do you use this?</h2>
             <ul>
-              <li>Safari</li>
-              <li>Chrome</li>
-              <li>Firefox</li>
-              <li>Browser-that-shall-not-be-named</li>
+              <li>Smooth animations</li>
+              <li>Assets loading</li>
+              <li>Games</li>
             </ul>
           </section>
-        </section>
-
-				<section>
-          <section>
-            <h2>asm.js</h2>
-          </section>
-          <section>
-            <h2>When do you use this?</h2>
-          </section>
 				</section>
+
 				<section>
 					<h1>THE END</h1>
 					<p>NIRANJAN B PRITHVIRAJ / niranjanprithviraj.com</p>
