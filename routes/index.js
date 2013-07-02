@@ -26,3 +26,7 @@ exports.websocket_res = function(req, res){
 exports.notifications = function(req, res){
   res.render('notifications', { title: 'Express' });
 };
+
+exports.createjs = function(req, res){
+  res.render('createjs', { title: 'Express' });
+};

@@ -1,0 +1,51 @@
+<!--http://www.youtube.com/watch?v=OWHJa0jKJgo&feature=c4-overview&list=UUgconPlnwxCLLr9rRwoVFWA-->
+<html>
+<head>
+</head>
+<body onload="init()">
+<canvas id="myCanvas" width="500" height="500">
+</canvas>
+<script src="http://code.createjs.com/createjs-2013.05.14.min.js"></script>
+<script>
+var stage, queue;
+function init() {
+  stage = new createjs.Stage("myCanvas");
+  queue = new createjs.LoadQueue();
+  queue.installPlugin(createjs.Sound);
+  queue.addEventListener("complete",handleComplete);
+  queue.loadManifest([{id:"daisy", src:"loader.gif"}, {id:"sound", src:"/GU-StealDaisy.mp3"}]);
+
+  //soundJS
+  createjs.Sound.registerSound("/GU-StealDaisy.mp3", "sound");
+  createjs.Sound.addEventListener("loadComplete", handleComplete);
+
+}
+
+function handleComplete(event){
+  //easelJS
+  var ball = new createjs.Shape();
+  ball.addEventListener("click", handleClick);
+  ball.graphics.beginFill("#000").drawCircle(0, 0, 50);
+  ball.x = 50;
+  ball.y = 200;
+
+  createjs.Tween.get(ball,{loop:true}).to({x:450}, 3000);
+  createjs.Ticker.addEventListener("tick", tick);
+  
+  stage.addChild(ball);    
+}
+
+function handleClick(event){
+  var bmp = new createjs.Bitmap(queue.getResult("daisy"));
+  bmp.x = Math.random()*500;
+  bmp.y = Math.random()*500;
+  stage.addChild(bmp);
+  createjs.Sound.play("sound");
+}
+
+function tick(event){
+  stage.update();
+}
+</script>
+</body>
+</html>
