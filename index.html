@@ -101,133 +101,129 @@
           </ol>
 				</section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Web Workers</h2>
-              <p>Single threading bringing you down?</p>
-					</section>
-					<section>
-						<h2>Some Code</h2>
-            <p>"Main thread"</p>
-            <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+				<!-- Web Workers Slide -->
+        <section>
+          <h2>Web Workers</h2>
+            <p>Single threading bringing you down?</p>
+        </section>
+        <section>
+          <h2>Some Code</h2>
+          <p>"Main thread"</p>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 var worker = new Worker('/js/worker.js');
 worker.addEventListener('message', function(e) {
-  console.log(e.data);
+console.log(e.data);
 }, false);
 worker.postMessage({'cmd':'start'});
 worker.postMessage({'cmd':'stop'});
 worker.postMessage({'cmd':'get'});
-            </code></pre>
-            <p>"Worker thread"</p>
-            <pre><code>
+          </code></pre>
+          <p>"Worker thread"</p>
+          <pre><code>
 self.addEventListener('message', function(e) {
-  self.postMessage({'msg':'WORKER STARTED'});
+self.postMessage({'msg':'WORKER STARTED'});
 }, false);
-            </pre></code>
-					</section>
-          <section>
-            <h2>When do you use this?</h2>
-            <ul>
-              <li>Worker scripts do not block UI scripts</li>
-              <li>Expensive tasks go to workers</li>
-              <li><del>Mimick concurrency</del></li>
-              <li>Safari, Chrome, Firefox, Opera</li>
-            </ul>
-          </section>
-				</section>
+          </pre></code>
+        </section>
+        <section>
+          <h2>When do you use this?</h2>
+          <ul>
+            <li>Worker scripts do not block UI scripts</li>
+            <li>Expensive tasks go to workers</li>
+            <li><del>Mimick concurrency</del></li>
+            <li>Safari, Chrome, Firefox, Opera</li>
+          </ul>
+        </section>
         
-				<section>
-          <section>
-            <h2>WebRTC</h2>
-            <p>Flash? That's so 2003.</p>
-          </section>
-          <section>
-            <h2>Some Code</h2>
-            <pre><code>
+				<!-- Web RTC Slide -->
+        <section>
+          <h2>WebRTC</h2>
+          <p>Flash? That's so 2003.</p>
+        </section>
+        <section>
+          <h2>Some Code</h2>
+          <pre><code>
 &lt;video style="width:600px;height:400px;"&gt;&lt;/video&gt;
-            </code></pre>
-            <pre><code>
+          </code></pre>
+          <pre><code>
 navigator.getUserMedia = navigator.getUserMedia || 
-                        navigator.webkitGetUserMedia || 
-                        navigator.mozGetUserMedia;
+                      navigator.webkitGetUserMedia || 
+                      navigator.mozGetUserMedia;
 
 var constraints = {audio: true, video: true};
 var video = document.querySelector("video");
 
 function successCallback(stream) {
-  window.stream = stream; // stream available to console
-  if (window.URL) {
-    video.src = window.URL.createObjectURL(stream);
-  } else {
-    video.src = stream;
-  }
-  video.play();
+window.stream = stream; // stream available to console
+if (window.URL) {
+  video.src = window.URL.createObjectURL(stream);
+} else {
+  video.src = stream;
+}
+video.play();
 }
 
 function errorCallback(error){
-  console.log("navigator.getUserMedia error: ", error);
+console.log("navigator.getUserMedia error: ", error);
 }
 
 navigator.getUserMedia(constraints, successCallback, errorCallback);
-            </code></pre>
-          </section>
-          <section>
-            <h2>When do you use this?</h2>
-            <ul>
-              <li>Chrome</li>
-              <li>Firefox</li>
-              <li>tokbox.com/opentok/webrtc/demo/index.html</li>
-            </ul>
-          </section>
-				</section>
+          </code></pre>
+        </section>
+        <section>
+          <h2>When do you use this?</h2>
+          <ul>
+            <li>Chrome</li>
+            <li>Firefox</li>
+            <li>tokbox.com/opentok/webrtc/demo/index.html</li>
+          </ul>
+        </section>
 
-				<section>
-          <section>
-            <h2>Webkit Desktop Notification</h2>
-            <p>Pop-ups are cool again.</p>
-          </section>
-          <section>
-            <h2>Some Code</h2>
-            <pre><code>
+        <!-- Webkit Slide -->
+        <section>
+          <h2>Webkit Desktop Notification</h2>
+          <p>Pop-ups are cool again.</p>
+        </section>
+        <section>
+          <h2>Some Code</h2>
+          <pre><code>
 function notify() {
-  var havePermission = window.webkitNotifications.checkPermission();
-  if (havePermission == 0) {
-    // 0 is PERMISSION_ALLOWED
-    var notification = window.webkitNotifications.createNotification(
-      'http://localhost:3000/notifications',
-      'Chrome notification!',
-      'Ola!'
-    );
+var havePermission = window.webkitNotifications.checkPermission();
+if (havePermission == 0) {
+  // 0 is PERMISSION_ALLOWED
+  var notification = window.webkitNotifications.createNotification(
+    'http://localhost:3000/notifications',
+    'Chrome notification!',
+    'Ola!'
+  );
 
-    notification.show();
-  } else {
-      window.webkitNotifications.requestPermission();
-  }
+  notification.show();
+} else {
+    window.webkitNotifications.requestPermission();
 }
-            </pre></code>
-          </section>
-          <section>
-            <h2>When do you use this?</h2>
-            <ul>
-              <li>Chrome</li>
-              <li>Safari</li>
-            </ul>
-          </section>
-				</section>
+}
+          </pre></code>
+        </section>
+        <section>
+          <h2>When do you use this?</h2>
+          <ul>
+            <li>Chrome</li>
+            <li>Safari</li>
+          </ul>
+        </section>
 
-				<section>
-          <section>
-            <h2>CREATEJS</h2>
-            <p>Animation, Sound, Assets management</p> 
-          </section>
-          <section>
-            <h2>Some Code</h2>
-            <pre><code>
+        <!-- CreateJS Slide -->
+        <section>
+          <h2>CREATEJS</h2>
+          <p>Animation, Sound, Assets management</p> 
+        </section>
+        <section>
+          <h2>Some Code</h2>
+          <pre><code>
 &lt;canvas id="myCanvas" width="500" height="500"&gt;&lt;/canvas&gt;
 &lt;script src="http://code.createjs.com/createjs-2013.05.14.min.js"&gt;&lt;/script&gt;
-            </code></pre>
-            <pre><code>
+          </code></pre>
+          <pre><code>
 var stage = new createjs.Stage("myCanvas");
 var ball = new createjs.Shape();
 ball.addEventListener("click", handleClick);
@@ -236,17 +232,16 @@ ball.x = 50;
 ball.y = 200;
 stage.addChild(ball);
 stage.update();
-            </code></pre>
-          </section>
-          <section>
-            <h2>When do you use this?</h2>
-            <ul>
-              <li>Smooth animations</li>
-              <li>Assets loading</li>
-              <li>Games</li>
-            </ul>
-          </section>
-				</section>
+          </code></pre>
+        </section>
+        <section>
+          <h2>When do you use this?</h2>
+          <ul>
+            <li>Smooth animations</li>
+            <li>Assets loading</li>
+            <li>Games</li>
+          </ul>
+        </section>
 
 				<section>
 					<h1>THE END</h1>
