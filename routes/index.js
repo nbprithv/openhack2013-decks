@@ -30,3 +30,8 @@ exports.notifications = function(req, res){
 exports.createjs = function(req, res){
   res.render('createjs', { title: 'Express' });
 };
+
+exports.backbonejs = function(req, res){
+  console.log("AAA");
+  res.render('backbonejs', { title: 'Express' });
+};

@@ -35,6 +35,7 @@ app.get('/websocket_res', routes.websocket_res);
 app.get('/notifications', routes.notifications);
 app.get('/webrtc', routes.webrtc);
 app.get('/createjs', routes.createjs);
+app.get('/backbonejs', routes.backbonejs);
 
 //http.createServer(app).listen(app.get('port'), function(){
 //  console.log('Express server listening on port ' + app.get('port'));
