@@ -3,6 +3,13 @@
  * GET home page.
  */
 
+var cradle = require('cradle'),
+connection = new (cradle.Connection)('localhost', '5984', {
+  cache: true,
+  raw: false
+}),
+db = connection.database('todo');
+
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
@@ -34,4 +41,14 @@ exports.createjs = function(req, res){
 exports.backbonejs = function(req, res){
   console.log("AAA");
   res.render('backbonejs', { title: 'Express' });
+};
+
+exports.listItems = function(req, res){
+  db.view('items/all',function(error, result) {
+    if( error ){
+    }else{
+      console.log(result);
+      res.json(200, result);
+    } 
+  });
 };

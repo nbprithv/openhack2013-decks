@@ -1,0 +1,17 @@
+body{
+  /*background-color: #191818;*/
+  background-image:url('pw_maze_black.png');
+  font-family:"proxima-nova",sans-serif;
+}
+.pure-g-r > div{
+  border:1px solid #000;
+}
+.content{
+  margin:auto;
+  width:70em;
+}
+.content-box{
+  padding:0.3em;
+  letter-spacing: 0em;
+  background-color:#FFF;
+}

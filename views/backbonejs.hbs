@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -8,16 +9,36 @@
 <script>
   var Todo = Backbone.Model.extend({
     initialize: function(){
-      console.log("initializing model");
-      this.on('change', function(){
-        console.log('- Values for this model have changed.');
+      this.on('change:title', function(){
+        console.log('title attr changed');
+      });
+      this.on('change:completed', function(){
+        console.log('completed attr changed');
       });
     },
     defaults: {
       title: '',
       completed: false
+    },
+    setTitle: function(newTitle){
+      this.set('title',newTitle); 
     }
+  }),
+  todoList = new Backbone.Collection;
+  todoList.on("add", function(todo) {
+
   });
+
+  $.ajax({
+      url: "/todo/list",
+  }).done(function(data) {
+      console.log(data);
+      for(var i = 0; i < data.length; i++){
+          todoList.add(data[i]);
+      }
+      console.log(JSON.stringify(todoList.toJSON()));
+  });
+
   var todo1 = new Todo();
   console.log(JSON.stringify(todo1));
   var todo2 = new Todo({
@@ -25,6 +46,7 @@
     completed: true
   });
   todo2.set('completed',false);
+  todo2.setTitle('Get milk');
   console.log(JSON.stringify(todo2));
 </script>
 </body>
