@@ -28,9 +28,17 @@
         opacity:0.1;
         width:50%;
       }
-      .y-logo, .y-logo-subtext{
+      .y-logo-header{
         position:fixed;
         right:10px;
+        top:2px;
+        width: 100%;
+      }
+      .y-logo{
+        margin:0px 6px 0px 12px;
+      }
+      .y-logo, .y-logo-subtext{
+        float:left;
         font-family: Helvetica neue,Helvetica,Arial,sans-serif;
         font-weight: lighter;
         text-align:right;
@@ -44,7 +52,7 @@
         .y-logo{
           background:url('http://l2.yimg.com/dh/ap/default/130613/pc_icons_btns_sprite_0613_3pm.png') no-repeat scroll -118px -2px transparent;
           top:10px;
-          height:19px;
+          height:18px;
           width:95px;
         }
         .y-logo, .y-logo-subtext{
@@ -271,8 +279,10 @@ stage.update();
 
 		</div>
     <div class="y-hack-logo"><img src="img/YHack2013-2.png"/></div>
-    <div class="y-logo"></div>
-    <div class="y-logo-subtext"><span>Hack</span> India 2013<br>Hyderabad</div>
+    <div class="y-logo-header">
+      <div class="y-logo"></div>
+      <div class="y-logo-subtext"><span>Hack</span> India 2013 | Hyderabad</div>
+    </div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
