@@ -21,6 +21,13 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
     
     <style>
+      .y-hack-logo{
+        position:fixed;
+      }
+      .y-hack-logo img{
+        opacity:0.1;
+        width:50%;
+      }
       .y-logo, .y-logo-subtext{
         position:fixed;
         right:10px;
@@ -47,6 +54,10 @@
           top:29px;
           color:#FFFFFF;
         }
+        .y-hack-logo{
+          top:20%;
+          left:35%;
+        }
       }
       @media only screen and (max-width: 767px) {
         .y-logo{
@@ -61,6 +72,10 @@
         .y-logo-subtext{
           top:29px;
           color:#FFFFFF;
+        }
+        .y-hack-logo{
+          top:35%;
+          left:35%;
         }
       }
     </style>
@@ -227,7 +242,7 @@ if (havePermission == 0) {
           </code></pre>
           <pre><code>
 var stage = new createjs.Stage("myCanvas");
-var ball = new createjs.Shape();
+vck2013-2.pngar ball = new createjs.Shape();
 ball.addEventListener("click", handleClick);
 ball.graphics.beginFill("#000").drawCircle(0, 0, 50);
 ball.x = 50;
@@ -255,6 +270,7 @@ stage.update();
 			</div>
 
 		</div>
+    <div class="y-hack-logo"><img src="/YHack2013-2.png"/></div>
     <div class="y-logo"></div>
     <div class="y-logo-subtext"><span>Hack</span> India 2013<br>Hyderabad</div>
 
