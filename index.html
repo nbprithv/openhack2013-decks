@@ -128,6 +128,7 @@
             <li>WebRTC</li>
             <li>Webkit Desktop Notifications</li>
             <li>CREATEJS</li>
+            <li>Web Sockets</li>
           </ol>
 				</section>
 
@@ -272,6 +273,35 @@ stage.update();
             <li>Games</li>
           </ul>
         </section>
+
+          <section>
+            <h2>Web Sockets</h2>
+            <p>Quit long polling.</p>   
+          </section>
+          <section>
+            <h2>Some Code</h2>
+            <pre><code>
+<script src="/socket.io/socket.io.js"></script>
+            </code></pre>
+            <pre><code>
+<script>
+  var socket = io.connect('ws://localhost:3000/websocket_res');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+            </code></pre>
+          </section>
+          <section>
+            <h2>When do you use this?</h2>
+            <ul>
+              <li>Safari</li>
+              <li>Chrome</li>
+              <li>Firefox</li>
+              <li>Browser-that-shall-not-be-named</li>
+            </ul>
+          </section>
 
 				<section>
 					<h3>THE END</h3>
