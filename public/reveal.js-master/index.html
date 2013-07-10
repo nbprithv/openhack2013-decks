@@ -281,16 +281,16 @@ stage.update();
           <section>
             <h2>Some Code</h2>
             <pre><code>
-<script src="/socket.io/socket.io.js"></script>
+&lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
             </code></pre>
             <pre><code>
-<script>
+&lt;script&gt;
   var socket = io.connect('ws://localhost:3000/websocket_res');
   socket.on('news', function (data) {
     console.log(data);
     socket.emit('my other event', { my: 'data' });
   });
-</script>
+&lt;/script&gt;
             </code></pre>
           </section>
           <section>
