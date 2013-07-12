@@ -90,6 +90,9 @@
           left:35%;
         }
       }
+      .reveal pre code{
+        font-size: 26px;
+      } 
     </style>
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
@@ -115,10 +118,10 @@
 					<h3>Use sparingly</h3>
           <p>Niranjan B Prithviraj</p>
 					<p>
-						<small><a href="http://niranjanprithviraj.com">niranjanprithviraj.com</a> | <a href="http://twitter.com/nbprithv">@nbprithv</a></small>
+						<a href="http://niranjanprithviraj.com">niranjanprithviraj.com</a> | <a href="http://twitter.com/nbprithv">@nbprithv</a>
 					</p>
-          <p><small><a href="http://bit.ly/hack2013-bet">bit.ly/hack2013-bet</a></small></p>
-          <p><small><a href="https://github.com/nbprithv/openhack2013-decks">github.com/nbprithv/openhack2013-decks</a></small></p>
+          <p><a href="http://bit.ly/hack2013-bet">bit.ly/hack2013-bet</a></p>
+          <p><a href="https://github.com/nbprithv/openhack2013-decks">github.com/nbprithv/openhack2013-decks</a></p>
 				</section>
 
 				<section>
@@ -140,7 +143,7 @@
         <section>
           <h2>Some Code</h2>
           <p>"Main thread"</p>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+          <pre><code data-trim contenteditable style="margin-top: 20px;">
 var worker = new Worker('/js/worker.js');
 worker.addEventListener('message', function(e) {
 console.log(e.data);
