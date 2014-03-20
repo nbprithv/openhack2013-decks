@@ -37,6 +37,7 @@ app.get('/notifications', routes.notifications);
 app.get('/webrtc', routes.webrtc);
 app.get('/createjs', routes.createjs);
 app.get('/backbonejs', routes.backbonejs);
+app.get('/angularjs', routes.angularjs);
 
 app.get('/todo/list',routes.listItems);
 

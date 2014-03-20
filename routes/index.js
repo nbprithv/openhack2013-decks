@@ -43,6 +43,10 @@ exports.backbonejs = function(req, res){
   res.render('backbonejs', { title: 'Express' });
 };
 
+exports.angularjs = function(req, res){
+  res.render('angular', { title: 'Express' });
+};
+
 exports.listItems = function(req, res){
   db.view('items/all',function(error, result) {
     if( error ){
